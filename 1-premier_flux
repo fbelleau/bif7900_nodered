@@ -1,0 +1,56 @@
+[
+    {
+        "id": "bf115b42.cd6528",
+        "type": "debug",
+        "z": "6ebaddd5.cb6b64",
+        "name": "",
+        "active": true,
+        "complete": false,
+        "x": 603.75,
+        "y": 177.5,
+        "wires": []
+    },
+    {
+        "id": "3b794c1c.0dd5a4",
+        "type": "inject",
+        "z": "6ebaddd5.cb6b64",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "repeat": "",
+        "once": false,
+        "x": 203.75,
+        "y": 177.5,
+        "wires": [
+            [
+                "9240cfd1.8e777"
+            ]
+        ]
+    },
+    {
+        "id": "9240cfd1.8e777",
+        "type": "function",
+        "z": "6ebaddd5.cb6b64",
+        "name": "Format timestamp",
+        "func": "// Create a Date object from the payload\nvar date = new Date(msg.payload);\n// Change the payload to be a formatted Date string\nmsg.payload = date.toString();\n// Return the message so it can be sent on\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 403.75,
+        "y": 177.5,
+        "wires": [
+            [
+                "bf115b42.cd6528"
+            ]
+        ]
+    },
+    {
+        "id": "471399a8.448b88",
+        "type": "comment",
+        "z": "6ebaddd5.cb6b64",
+        "name": "first-flow",
+        "info": "https://nodered.org/docs/getting-started/first-flow",
+        "x": 193.75000762939453,
+        "y": 70.00000190734863,
+        "wires": []
+    }
+]
