@@ -1,0 +1,173 @@
+[
+    {
+        "id": "1628fec7.9d3a81",
+        "type": "tab",
+        "label": "6-split"
+    },
+    {
+        "id": "3f32bd40.234382",
+        "type": "split",
+        "z": "1628fec7.9d3a81",
+        "name": "",
+        "splt": ",",
+        "x": 439.99999618530273,
+        "y": 105,
+        "wires": [
+            [
+                "c6c97316.77b3a"
+            ]
+        ]
+    },
+    {
+        "id": "6d1d887f.bb25e8",
+        "type": "inject",
+        "z": "1628fec7.9d3a81",
+        "name": "",
+        "topic": "",
+        "payload": "1,2,3",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 176.24999618530273,
+        "y": 102.5,
+        "wires": [
+            [
+                "3f32bd40.234382"
+            ]
+        ]
+    },
+    {
+        "id": "c6c97316.77b3a",
+        "type": "debug",
+        "z": "1628fec7.9d3a81",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 696.2500076293945,
+        "y": 105.00000190734863,
+        "wires": []
+    },
+    {
+        "id": "decf40d4.df647",
+        "type": "function",
+        "z": "1628fec7.9d3a81",
+        "name": "1,2,3,4",
+        "func": "msg1 = {payload:1};\nmsg2 = {payload:2};\nmsg3 = {payload:3};\nmsg4 = {payload:4};\n\nreturn [[msg1,msg2,msg3,msg4]];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 442,
+        "y": 41,
+        "wires": [
+            [
+                "c6c97316.77b3a"
+            ]
+        ]
+    },
+    {
+        "id": "5ae5b787.bb36f8",
+        "type": "inject",
+        "z": "1628fec7.9d3a81",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170.74999237060547,
+        "y": 39.750000953674316,
+        "wires": [
+            [
+                "decf40d4.df647"
+            ]
+        ]
+    },
+    {
+        "id": "db57d2bf.a6887",
+        "type": "function",
+        "z": "1628fec7.9d3a81",
+        "name": "[1,2,3,4,5]",
+        "func": "var outputMsgs = [];\n\nfor (var i = 0; i < msg.payload.length; ++i) {\n    outputMsgs.push({payload:msg.payload[i]});\n}                \n\nreturn [ outputMsgs ];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 437.25,
+        "y": 190,
+        "wires": [
+            [
+                "c6c97316.77b3a"
+            ]
+        ]
+    },
+    {
+        "id": "508a3854.df2b08",
+        "type": "inject",
+        "z": "1628fec7.9d3a81",
+        "name": "",
+        "topic": "",
+        "payload": "[1,2,3,4,5]",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 165.49999237060547,
+        "y": 187.5,
+        "wires": [
+            [
+                "db57d2bf.a6887"
+            ]
+        ]
+    },
+    {
+        "id": "9c139d85.400ee",
+        "type": "json",
+        "z": "1628fec7.9d3a81",
+        "name": "",
+        "x": 356,
+        "y": 356.5,
+        "wires": [
+            [
+                "db57d2bf.a6887"
+            ]
+        ]
+    },
+    {
+        "id": "2a1ffb74.9d8644",
+        "type": "inject",
+        "z": "1628fec7.9d3a81",
+        "name": "\"[1,2,3,4,5]\"",
+        "topic": "",
+        "payload": "[1,2,3,4,5]",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 174.75,
+        "y": 274.25,
+        "wires": [
+            [
+                "db57d2bf.a6887"
+            ]
+        ]
+    },
+    {
+        "id": "d7d6ab72.7bb148",
+        "type": "inject",
+        "z": "1628fec7.9d3a81",
+        "name": "\"[1,2,3,4,5]\"",
+        "topic": "",
+        "payload": "[1,2,3,4,5]",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 176.75,
+        "y": 354.5,
+        "wires": [
+            [
+                "9c139d85.400ee"
+            ]
+        ]
+    }
+]
