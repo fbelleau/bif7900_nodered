@@ -1,61 +1,130 @@
 [
     {
-        "id": "6ebaddd5.cb6b64",
+        "id": "ad90bf10.97065",
         "type": "tab",
-        "label": "1-premier_flux"
+        "label": "2-type de donnees"
     },
     {
-        "id": "bf115b42.cd6528",
+        "id": "2fdb09bc.8af526",
+        "type": "inject",
+        "z": "ad90bf10.97065",
+        "name": "message text",
+        "topic": "",
+        "payload": "un premier message texte",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 245,
+        "y": 141.50000095367432,
+        "wires": [
+            [
+                "ffa990c9.8ca71"
+            ]
+        ]
+    },
+    {
+        "id": "ffa990c9.8ca71",
         "type": "debug",
-        "z": "6ebaddd5.cb6b64",
+        "z": "ad90bf10.97065",
         "name": "",
         "active": true,
-        "complete": false,
-        "x": 603.75,
-        "y": 177.5,
+        "console": "false",
+        "complete": "false",
+        "x": 523.7500038146973,
+        "y": 139.00000095367432,
         "wires": []
     },
     {
-        "id": "3b794c1c.0dd5a4",
-        "type": "inject",
-        "z": "6ebaddd5.cb6b64",
+        "id": "6ca80aca.743a54",
+        "type": "debug",
+        "z": "ad90bf10.97065",
         "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 503.25,
+        "y": 412,
+        "wires": []
+    },
+    {
+        "id": "332f9d52.ef3472",
+        "type": "inject",
+        "z": "ad90bf10.97065",
+        "name": "message numerique",
+        "topic": "",
+        "payload": "1234",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 258.75000381469727,
+        "y": 291.50000381469727,
+        "wires": [
+            [
+                "4ac0470d.1b08b8"
+            ]
+        ]
+    },
+    {
+        "id": "4ac0470d.1b08b8",
+        "type": "debug",
+        "z": "ad90bf10.97065",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 517.5000038146973,
+        "y": 289.00000190734863,
+        "wires": []
+    },
+    {
+        "id": "c1065ad9.7424e8",
+        "type": "inject",
+        "z": "ad90bf10.97065",
+        "name": "message JSON",
+        "topic": "",
+        "payload": "{ \"nom\": \"Belleau\", \"prenom\": \"Francois\", \"age\": 53 }",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 252.50002670288086,
+        "y": 407,
+        "wires": [
+            [
+                "4ac0470d.1b08b8",
+                "6ca80aca.743a54"
+            ]
+        ]
+    },
+    {
+        "id": "46bd036c.27a77c",
+        "type": "comment",
+        "z": "ad90bf10.97065",
+        "name": "node-red data type",
+        "info": "http://www.w3schools.com/js/js_datatypes.asp\n\nhttps://nodered.org/docs/\n\nhttps://flows.nodered.org/",
+        "x": 243.24999618530273,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9824f9e1.daaa58",
+        "type": "inject",
+        "z": "ad90bf10.97065",
+        "name": "message date de maintenant",
         "topic": "",
         "payload": "",
+        "payloadType": "date",
         "repeat": "",
+        "crontab": "",
         "once": false,
-        "x": 203.75,
-        "y": 177.5,
+        "x": 276.24999618530273,
+        "y": 217.75,
         "wires": [
             [
-                "9240cfd1.8e777"
+                "4ac0470d.1b08b8"
             ]
         ]
-    },
-    {
-        "id": "9240cfd1.8e777",
-        "type": "function",
-        "z": "6ebaddd5.cb6b64",
-        "name": "Format timestamp",
-        "func": "// Create a Date object from the payload\nvar date = new Date(msg.payload);\n// Change the payload to be a formatted Date string\nmsg.payload = date.toString();\n// Return the message so it can be sent on\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 403.75,
-        "y": 177.5,
-        "wires": [
-            [
-                "bf115b42.cd6528"
-            ]
-        ]
-    },
-    {
-        "id": "471399a8.448b88",
-        "type": "comment",
-        "z": "6ebaddd5.cb6b64",
-        "name": "first-flow",
-        "info": "https://nodered.org/docs/getting-started/first-flow",
-        "x": 193.75000762939453,
-        "y": 70.00000190734863,
-        "wires": []
     }
 ]
