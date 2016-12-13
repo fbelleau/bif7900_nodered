@@ -1,0 +1,125 @@
+[
+    {
+        "id": "540c1cd2.2b4644",
+        "type": "inject",
+        "z": "5fa7a94a.2aa308",
+        "name": "message text",
+        "topic": "",
+        "payload": "un premier message texte",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 293.75000381469727,
+        "y": 93.75000095367432,
+        "wires": [
+            [
+                "ec2bec0e.8df4a"
+            ]
+        ]
+    },
+    {
+        "id": "ec2bec0e.8df4a",
+        "type": "debug",
+        "z": "5fa7a94a.2aa308",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 572.5000076293945,
+        "y": 91.25000095367432,
+        "wires": []
+    },
+    {
+        "id": "5c3ce580.f33dec",
+        "type": "debug",
+        "z": "5fa7a94a.2aa308",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 585.0000076293945,
+        "y": 351.2500057220459,
+        "wires": []
+    },
+    {
+        "id": "b50358af.5cd978",
+        "type": "inject",
+        "z": "5fa7a94a.2aa308",
+        "name": "message numerique",
+        "topic": "",
+        "payload": "1234",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 307.50000762939453,
+        "y": 243.75000381469727,
+        "wires": [
+            [
+                "88fe0a9f.413558"
+            ]
+        ]
+    },
+    {
+        "id": "88fe0a9f.413558",
+        "type": "debug",
+        "z": "5fa7a94a.2aa308",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 566.2500076293945,
+        "y": 241.25000190734863,
+        "wires": []
+    },
+    {
+        "id": "ba558649.e26be8",
+        "type": "inject",
+        "z": "5fa7a94a.2aa308",
+        "name": "message JSON",
+        "topic": "",
+        "payload": "{ \"nom\": \"Belleau\", \"prenom\": \"Francois\", \"age\": 53 }",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 301.2500305175781,
+        "y": 359.25,
+        "wires": [
+            [
+                "88fe0a9f.413558",
+                "5c3ce580.f33dec"
+            ]
+        ]
+    },
+    {
+        "id": "3f1b709f.215b7",
+        "type": "comment",
+        "z": "5fa7a94a.2aa308",
+        "name": "node-red data type",
+        "info": "http://www.w3schools.com/js/js_datatypes.asp\n\nhttps://nodered.org/docs/\n\nhttps://flows.nodered.org/",
+        "x": 292,
+        "y": 32.25,
+        "wires": []
+    },
+    {
+        "id": "b52c8bb.f4ad378",
+        "type": "inject",
+        "z": "5fa7a94a.2aa308",
+        "name": "message date de maintenant",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 325,
+        "y": 170,
+        "wires": [
+            [
+                "88fe0a9f.413558"
+            ]
+        ]
+    }
+]
