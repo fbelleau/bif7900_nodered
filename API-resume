@@ -1,0 +1,163 @@
+[
+    {
+        "id": "ba7265c9.feac38",
+        "type": "tab",
+        "label": "API-resume"
+    },
+    {
+        "id": "5d689b6b.fc8aa4",
+        "type": "inject",
+        "z": "ba7265c9.feac38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 123.75,
+        "y": 77.5,
+        "wires": [
+            [
+                "4ac59592.3745bc"
+            ]
+        ]
+    },
+    {
+        "id": "509e7e9d.4ce0e",
+        "type": "inject",
+        "z": "ba7265c9.feac38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 103.75,
+        "y": 156.25,
+        "wires": [
+            [
+                "ed2d2e46.0f4b5"
+            ]
+        ]
+    },
+    {
+        "id": "2b60458e.f6656a",
+        "type": "inject",
+        "z": "ba7265c9.feac38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 82.5,
+        "y": 216.25,
+        "wires": [
+            [
+                "ae3c5e0d.d1a88"
+            ]
+        ]
+    },
+    {
+        "id": "bf2a8c45.8a09e",
+        "type": "inject",
+        "z": "ba7265c9.feac38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 93.75,
+        "y": 287.5,
+        "wires": [
+            [
+                "a82d1cc2.a5972"
+            ]
+        ]
+    },
+    {
+        "id": "4ac59592.3745bc",
+        "type": "http request",
+        "z": "ba7265c9.feac38",
+        "name": "http://nodered.bio2rdf.org:8080/mygene?id=15275",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:1880/mygene?id=15275",
+        "tls": "",
+        "x": 481.25,
+        "y": 78.75,
+        "wires": [
+            [
+                "80d094ff.dc5ac8"
+            ]
+        ]
+    },
+    {
+        "id": "ed2d2e46.0f4b5",
+        "type": "http request",
+        "z": "ba7265c9.feac38",
+        "name": "http://nodered.bio2rdf.org:8080/gene?id=15275",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:1880/gene?id=15275",
+        "tls": "",
+        "x": 462.5,
+        "y": 150,
+        "wires": [
+            [
+                "80d094ff.dc5ac8"
+            ]
+        ]
+    },
+    {
+        "id": "ae3c5e0d.d1a88",
+        "type": "http request",
+        "z": "ba7265c9.feac38",
+        "name": "http://nodered.bio2rdf.org:8080/ensembl?id=ENSG00000157764",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:1880/ensembl?id=ENSG00000157764",
+        "tls": "",
+        "x": 502.5,
+        "y": 216.25,
+        "wires": [
+            [
+                "80d094ff.dc5ac8"
+            ]
+        ]
+    },
+    {
+        "id": "a82d1cc2.a5972",
+        "type": "http request",
+        "z": "ba7265c9.feac38",
+        "name": "http://nodered.bio2rdf.org:8080/pubmed?id=18472304",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:1880/pubmed?id=18472304",
+        "tls": "",
+        "x": 488.75,
+        "y": 292.50000381469727,
+        "wires": [
+            [
+                "80d094ff.dc5ac8"
+            ]
+        ]
+    },
+    {
+        "id": "80d094ff.dc5ac8",
+        "type": "debug",
+        "z": "ba7265c9.feac38",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 920.0000114440918,
+        "y": 176.25000190734863,
+        "wires": []
+    }
+]
