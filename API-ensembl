@@ -1,0 +1,139 @@
+[
+    {
+        "id": "7f7c1dd0.dae8f4",
+        "type": "tab",
+        "label": "API-ensembl"
+    },
+    {
+        "id": "55c506da.39fa68",
+        "type": "http request",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "GET https://rest.ensembl.org/xrefs/id/",
+        "method": "GET",
+        "ret": "obj",
+        "url": "https://rest.ensembl.org/lookup/id/{{{id}}}?content-type=application/json",
+        "tls": "",
+        "x": 461.25,
+        "y": 323.75,
+        "wires": [
+            [
+                "3628c21e.6daece"
+            ]
+        ]
+    },
+    {
+        "id": "a94daf9d.46832",
+        "type": "debug",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "false",
+        "x": 814.5000114440918,
+        "y": 413.7500057220459,
+        "wires": []
+    },
+    {
+        "id": "93daca8a.9116e8",
+        "type": "http response",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "",
+        "x": 808.2500152587891,
+        "y": 504.0000047683716,
+        "wires": []
+    },
+    {
+        "id": "66808d06.036194",
+        "type": "function",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "msg.res === undefined",
+        "func": "if (msg.res === undefined) {\n    return null;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560.5000152587891,
+        "y": 506.0000047683716,
+        "wires": [
+            [
+                "93daca8a.9116e8"
+            ]
+        ]
+    },
+    {
+        "id": "cc7b5deb.830e8",
+        "type": "http in",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "",
+        "url": "/ensembl",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 165,
+        "y": 324.99999809265137,
+        "wires": [
+            [
+                "b37280d7.03903"
+            ]
+        ]
+    },
+    {
+        "id": "3628c21e.6daece",
+        "type": "function",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "msg.paylod.id = msg.id;",
+        "func": "msg.payload.id = msg.id;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 575.5000076293945,
+        "y": 411.25000381469727,
+        "wires": [
+            [
+                "a94daf9d.46832",
+                "66808d06.036194"
+            ]
+        ]
+    },
+    {
+        "id": "4fd16258.30fc1c",
+        "type": "inject",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "",
+        "topic": "",
+        "payload": "{\"id\":\"ENSG00000157764\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 151.5,
+        "y": 236.7500123977661,
+        "wires": [
+            [
+                "b37280d7.03903"
+            ]
+        ]
+    },
+    {
+        "id": "9cd17b08.a9ac28",
+        "type": "comment",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "https://rest.ensembl.org/",
+        "info": "https://rest.ensembl.org/documentation/info/lookup\n\nhttps://rest.ensembl.org/lookup/id/ENSG00000157764?content-type=application/json\n\nhttp://nodered.bio2rdf.org:8080/ensembl?id=ENSG00000157764",
+        "x": 437.50000762939453,
+        "y": 165.50000286102295,
+        "wires": []
+    },
+    {
+        "id": "b37280d7.03903",
+        "type": "function",
+        "z": "7f7c1dd0.dae8f4",
+        "name": "msg.id",
+        "func": "msg.id = msg.payload.id;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 402.50000762939453,
+        "y": 234.25000381469727,
+        "wires": [
+            [
+                "55c506da.39fa68"
+            ]
+        ]
+    }
+]
