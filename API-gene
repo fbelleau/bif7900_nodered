@@ -1,0 +1,139 @@
+[
+    {
+        "id": "999da6fd.e9bbc8",
+        "type": "tab",
+        "label": "API-gene"
+    },
+    {
+        "id": "a6af3e7c.25da1",
+        "type": "http request",
+        "z": "999da6fd.e9bbc8",
+        "name": "GET https://eutils.ncbi.nlm.nih.gov/entrez/eutils",
+        "method": "GET",
+        "ret": "obj",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gene&id={{{payload.id}}}&retmode=json",
+        "tls": "",
+        "x": 456.25,
+        "y": 201.99999904632568,
+        "wires": [
+            [
+                "c01c1433.0dfec8"
+            ]
+        ]
+    },
+    {
+        "id": "de2677f9.f3d568",
+        "type": "debug",
+        "z": "999da6fd.e9bbc8",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "false",
+        "x": 793.2500114440918,
+        "y": 290.75000286102295,
+        "wires": []
+    },
+    {
+        "id": "be39c50b.bd62a8",
+        "type": "http response",
+        "z": "999da6fd.e9bbc8",
+        "name": "",
+        "x": 773.2500152587891,
+        "y": 382.25000381469727,
+        "wires": []
+    },
+    {
+        "id": "bdc09ab1.269f38",
+        "type": "function",
+        "z": "999da6fd.e9bbc8",
+        "name": "msg.res === undefined",
+        "func": "if (msg.res === undefined) {\n    return null;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 525.5000152587891,
+        "y": 384.25000381469727,
+        "wires": [
+            [
+                "be39c50b.bd62a8"
+            ]
+        ]
+    },
+    {
+        "id": "939d4920.cbdca8",
+        "type": "http in",
+        "z": "999da6fd.e9bbc8",
+        "name": "",
+        "url": "/gene",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 203.24999713897705,
+        "wires": [
+            [
+                "58a35535.b42aac"
+            ]
+        ]
+    },
+    {
+        "id": "c01c1433.0dfec8",
+        "type": "function",
+        "z": "999da6fd.e9bbc8",
+        "name": "msg.payload.result[id]",
+        "func": "msg.payload = msg.payload.result[msg.id];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530.5000076293945,
+        "y": 289.50000286102295,
+        "wires": [
+            [
+                "de2677f9.f3d568",
+                "bdc09ab1.269f38"
+            ]
+        ]
+    },
+    {
+        "id": "92011640.72a788",
+        "type": "inject",
+        "z": "999da6fd.e9bbc8",
+        "name": "",
+        "topic": "",
+        "payload": "{\"id\":\"15275\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 136.5,
+        "y": 115.0000114440918,
+        "wires": [
+            [
+                "58a35535.b42aac"
+            ]
+        ]
+    },
+    {
+        "id": "8d66e88e.b71368",
+        "type": "comment",
+        "z": "999da6fd.e9bbc8",
+        "name": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+        "info": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gene&id=152754&retmode=json\n\nhttp://nodered.bio2rdf.org:8080/gene?id=15275",
+        "x": 483.75,
+        "y": 46.25,
+        "wires": []
+    },
+    {
+        "id": "58a35535.b42aac",
+        "type": "function",
+        "z": "999da6fd.e9bbc8",
+        "name": "msg.id",
+        "func": "msg.id = msg.payload.id;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 412.5,
+        "y": 120,
+        "wires": [
+            [
+                "a6af3e7c.25da1"
+            ]
+        ]
+    }
+]
