@@ -1,0 +1,165 @@
+[
+    {
+        "id": "a547f3f.20e7f1",
+        "type": "tab",
+        "label": "API-mygene"
+    },
+    {
+        "id": "a35a15e4.608868",
+        "type": "http request",
+        "z": "a547f3f.20e7f1",
+        "name": "GET http://mygene.info/v3/query",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://mygene.info/v3/query?q=entrezgene:{{{payload.id}}}&fields=all",
+        "tls": "",
+        "x": 309,
+        "y": 238,
+        "wires": [
+            [
+                "f87d6094.6709b"
+            ]
+        ]
+    },
+    {
+        "id": "8cd247e2.eb1718",
+        "type": "debug",
+        "z": "a547f3f.20e7f1",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "false",
+        "x": 863.7500076293945,
+        "y": 324.0000057220459,
+        "wires": []
+    },
+    {
+        "id": "897df145.162ad",
+        "type": "http response",
+        "z": "a547f3f.20e7f1",
+        "name": "",
+        "x": 858.5000076293945,
+        "y": 415.25000762939453,
+        "wires": []
+    },
+    {
+        "id": "82d1e309.e0022",
+        "type": "function",
+        "z": "a547f3f.20e7f1",
+        "name": "msg.res === undefined",
+        "func": "if (msg.res === undefined) {\n    return null;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 627.0000152587891,
+        "y": 407.2500057220459,
+        "wires": [
+            [
+                "897df145.162ad"
+            ]
+        ]
+    },
+    {
+        "id": "5393c07.f132e4",
+        "type": "http in",
+        "z": "a547f3f.20e7f1",
+        "name": "",
+        "url": "/mygene",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 75,
+        "y": 235.50000190734863,
+        "wires": [
+            [
+                "a35a15e4.608868"
+            ]
+        ]
+    },
+    {
+        "id": "f87d6094.6709b",
+        "type": "function",
+        "z": "a547f3f.20e7f1",
+        "name": "msg.payload.hits[0]",
+        "func": "msg.payload = msg.payload.hits[0];\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 566,
+        "y": 238,
+        "wires": [
+            [
+                "a8a5a56.a4b3858"
+            ]
+        ]
+    },
+    {
+        "id": "50ecb087.f54f8",
+        "type": "inject",
+        "z": "a547f3f.20e7f1",
+        "name": "",
+        "topic": "",
+        "payload": "{\"id\":\"15275\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 86.75,
+        "y": 154.75000953674316,
+        "wires": [
+            [
+                "a35a15e4.608868"
+            ]
+        ]
+    },
+    {
+        "id": "a8a5a56.a4b3858",
+        "type": "json",
+        "z": "a547f3f.20e7f1",
+        "name": "",
+        "x": 299,
+        "y": 325,
+        "wires": [
+            [
+                "80f951e9.ac29a"
+            ]
+        ]
+    },
+    {
+        "id": "840f8789.bd2728",
+        "type": "json",
+        "z": "a547f3f.20e7f1",
+        "name": "",
+        "x": 684,
+        "y": 324,
+        "wires": [
+            [
+                "82d1e309.e0022",
+                "8cd247e2.eb1718"
+            ]
+        ]
+    },
+    {
+        "id": "80f951e9.ac29a",
+        "type": "function",
+        "z": "a547f3f.20e7f1",
+        "name": "replace(\"_id\",\"id\")",
+        "func": "msg.payload = msg.payload.replace(\"_id\",\"id\");\nmsg.payload = msg.payload.replace(\"_score\",\"score\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 509,
+        "y": 324,
+        "wires": [
+            [
+                "840f8789.bd2728"
+            ]
+        ]
+    },
+    {
+        "id": "c0d7137e.b27df",
+        "type": "comment",
+        "z": "a547f3f.20e7f1",
+        "name": "http://mygene.info/v3/api",
+        "info": "http://nodered.bio2rdf.org:8080/mygene?id=15275",
+        "x": 154,
+        "y": 46,
+        "wires": []
+    }
+]
