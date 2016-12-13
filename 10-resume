@@ -1,0 +1,204 @@
+[
+    {
+        "id": "b9a5412e.2cced",
+        "type": "tab",
+        "label": "10-resume"
+    },
+    {
+        "id": "413fea0c.9dbd84",
+        "type": "inject",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 173.75,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9febadd8.f521b",
+        "type": "http in",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "url": "/in",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 158.75,
+        "y": 127.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e413d6ef.763248",
+        "type": "debug",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 355,
+        "y": 83.75,
+        "wires": []
+    },
+    {
+        "id": "61f9683c.a5c018",
+        "type": "http response",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "x": 347.5,
+        "y": 137.5,
+        "wires": []
+    },
+    {
+        "id": "6aadfa23.48f514",
+        "type": "function",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "911fbaee.9c3b38",
+        "type": "template",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}} !",
+        "x": 567.5,
+        "y": 132.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6fe8509a.95e76",
+        "type": "comment",
+        "z": "b9a5412e.2cced",
+        "name": "Input",
+        "info": "",
+        "x": 155,
+        "y": 26.25,
+        "wires": []
+    },
+    {
+        "id": "9a14147b.119ab8",
+        "type": "comment",
+        "z": "b9a5412e.2cced",
+        "name": "Output",
+        "info": "",
+        "x": 345,
+        "y": 26.25,
+        "wires": []
+    },
+    {
+        "id": "24a02005.6996d",
+        "type": "comment",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "info": "",
+        "x": 568.75,
+        "y": 187.5,
+        "wires": []
+    },
+    {
+        "id": "7871e81b.a3d768",
+        "type": "http request",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "x": 560,
+        "y": 252.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc98e0cf.a546f",
+        "type": "switch",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": ""
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 560,
+        "y": 308.75,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a87c508.ec954b",
+        "type": "split",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "splt": "\\n",
+        "x": 551.25,
+        "y": 363.75,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c61f94a5.4f70b8",
+        "type": "json",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "x": 550,
+        "y": 418.75,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d899c3ea.af43b",
+        "type": "comment",
+        "z": "b9a5412e.2cced",
+        "name": "Function",
+        "info": "",
+        "x": 578.7500076293945,
+        "y": 30,
+        "wires": []
+    },
+    {
+        "id": "f65df1d3.c37c6",
+        "type": "csv",
+        "z": "b9a5412e.2cced",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "x": 552.5000076293945,
+        "y": 480.00000762939453,
+        "wires": [
+            []
+        ]
+    }
+]
