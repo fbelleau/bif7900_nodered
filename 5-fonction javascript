@@ -1,0 +1,194 @@
+[
+    {
+        "id": "e41ba46e.3bf818",
+        "type": "tab",
+        "label": "5-fonction javascript"
+    },
+    {
+        "id": "b5dd5556.b04a68",
+        "type": "inject",
+        "z": "e41ba46e.3bf818",
+        "name": "",
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 183.75,
+        "y": 110,
+        "wires": [
+            [
+                "8894cf2.f95443"
+            ]
+        ]
+    },
+    {
+        "id": "8894cf2.f95443",
+        "type": "function",
+        "z": "e41ba46e.3bf818",
+        "name": "msg.payload * 10",
+        "func": "msg.payload = msg.payload * 10; \n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 487.5,
+        "y": 111.25,
+        "wires": [
+            [
+                "57522a2.72d2dd4"
+            ]
+        ]
+    },
+    {
+        "id": "57522a2.72d2dd4",
+        "type": "debug",
+        "z": "e41ba46e.3bf818",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 807.5000152587891,
+        "y": 160.00000286102295,
+        "wires": []
+    },
+    {
+        "id": "b4e0be9d.48073",
+        "type": "inject",
+        "z": "e41ba46e.3bf818",
+        "name": "",
+        "topic": "",
+        "payload": "Francois",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 187.50000381469727,
+        "y": 215.00000286102295,
+        "wires": [
+            [
+                "3507ead.d08e016"
+            ]
+        ]
+    },
+    {
+        "id": "3507ead.d08e016",
+        "type": "function",
+        "z": "e41ba46e.3bf818",
+        "name": "\"Bonjour \" + msg.payload + \" !\"",
+        "func": "msg.payload = \"Bonjour \" + msg.payload + \" !\"; \n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530.0000076293945,
+        "y": 216.25000190734863,
+        "wires": [
+            [
+                "57522a2.72d2dd4"
+            ]
+        ]
+    },
+    {
+        "id": "2d664a5c.070506",
+        "type": "inject",
+        "z": "e41ba46e.3bf818",
+        "name": "{\"prenom\":\"Francois\",\"age\":53}",
+        "topic": "",
+        "payload": "{\"prenom\":\"Francois\",\"age\":53}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 202.50001525878906,
+        "y": 312.5000047683716,
+        "wires": [
+            [
+                "856ce4b3.4d4a68",
+                "669279f6.d8c1d8"
+            ]
+        ]
+    },
+    {
+        "id": "856ce4b3.4d4a68",
+        "type": "function",
+        "z": "e41ba46e.3bf818",
+        "name": "msg.age = msg.payload.age; ",
+        "func": "msg.age = msg.payload.age; \nmsg.prenom = msg.payload.prenom; \n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 522.5000381469727,
+        "y": 361.2500057220459,
+        "wires": [
+            [
+                "1f4d5637.3fb96a",
+                "94590f32.a2672",
+                "669279f6.d8c1d8"
+            ]
+        ]
+    },
+    {
+        "id": "669279f6.d8c1d8",
+        "type": "debug",
+        "z": "e41ba46e.3bf818",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 816.2500114440918,
+        "y": 308.75000381469727,
+        "wires": []
+    },
+    {
+        "id": "1f4d5637.3fb96a",
+        "type": "function",
+        "z": "e41ba46e.3bf818",
+        "name": "\"Bonjour \" + msg.nom",
+        "func": "msg.payload = \"Bonjour \" + msg.prenom; \n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 535.0000076293945,
+        "y": 443.7500057220459,
+        "wires": [
+            [
+                "2c299d15.15c3e2",
+                "94590f32.a2672"
+            ]
+        ]
+    },
+    {
+        "id": "2c299d15.15c3e2",
+        "type": "function",
+        "z": "e41ba46e.3bf818",
+        "name": "msg.payload + \" vous avez \" + msg.age",
+        "func": "msg.payload = msg.payload + \" vous avez \" + msg.age + \" ans.\"; \n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 553.7500152587891,
+        "y": 537.5000076293945,
+        "wires": [
+            [
+                "94590f32.a2672"
+            ]
+        ]
+    },
+    {
+        "id": "94590f32.a2672",
+        "type": "debug",
+        "z": "e41ba46e.3bf818",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 833.7500152587891,
+        "y": 417.50000286102295,
+        "wires": []
+    },
+    {
+        "id": "ec3a660b.b2ed78",
+        "type": "comment",
+        "z": "e41ba46e.3bf818",
+        "name": "JavaScript",
+        "info": "https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript\n\nhttp://www.w3schools.com/js/default.asp\n\nhttps://nodejs.org/en/\n\nhttps://www.npmjs.com/",
+        "x": 311.25,
+        "y": 41.25,
+        "wires": []
+    }
+]
