@@ -1,0 +1,393 @@
+[
+    {
+        "id": "6788480a.31af48",
+        "type": "tab",
+        "label": "4-messages"
+    },
+    {
+        "id": "97605cd6.fbc8d",
+        "type": "function",
+        "z": "6788480a.31af48",
+        "name": "copier le message",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 487.50000762939453,
+        "y": 146.25000190734863,
+        "wires": [
+            [
+                "deb759cf.658718"
+            ]
+        ]
+    },
+    {
+        "id": "deb759cf.658718",
+        "type": "debug",
+        "z": "6788480a.31af48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 813.7500114440918,
+        "y": 143.75000190734863,
+        "wires": []
+    },
+    {
+        "id": "9b371edb.2be3f",
+        "type": "inject",
+        "z": "6788480a.31af48",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 177.50000381469727,
+        "y": 78.7500057220459,
+        "wires": [
+            [
+                "97605cd6.fbc8d"
+            ]
+        ]
+    },
+    {
+        "id": "27f4db9b.4d3df4",
+        "type": "inject",
+        "z": "6788480a.31af48",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 187.50000381469727,
+        "y": 498.7500066757202,
+        "wires": [
+            [
+                "992ee6a5.837088"
+            ]
+        ]
+    },
+    {
+        "id": "992ee6a5.837088",
+        "type": "function",
+        "z": "6788480a.31af48",
+        "name": "envoyer 3 messages",
+        "func": "var msg1 = { payload:\"premier message\" };\nvar msg2 = { payload:\"deuxieme message\" };\nvar msg3 = { payload:\"troisieme message\" };\n\nreturn [[msg1, msg2, msg3]];",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 493.7500419616699,
+        "y": 495.0000047683716,
+        "wires": [
+            [
+                "7b656d4e.3cd024"
+            ]
+        ]
+    },
+    {
+        "id": "7b656d4e.3cd024",
+        "type": "debug",
+        "z": "6788480a.31af48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 823.7500152587891,
+        "y": 500.0000057220459,
+        "wires": []
+    },
+    {
+        "id": "60890dab.f82d74",
+        "type": "inject",
+        "z": "6788480a.31af48",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 171.25000381469727,
+        "y": 251.25,
+        "wires": [
+            [
+                "651b2562.49edcc"
+            ]
+        ]
+    },
+    {
+        "id": "651b2562.49edcc",
+        "type": "function",
+        "z": "6788480a.31af48",
+        "name": "copier le message en trois copies",
+        "func": "var msg1 = { payload:\"premier message\" };\nvar msg2 = { payload:\"deuxieme message\" };\nvar msg3 = { payload:\"troisieme message\" };\n\nreturn [msg1, msg2, msg3 ];",
+        "outputs": "3",
+        "noerr": 0,
+        "x": 515.0000095367432,
+        "y": 251.25000190734863,
+        "wires": [
+            [
+                "ecb2b00a.87fd8"
+            ],
+            [
+                "cdebe994.b6fe88"
+            ],
+            [
+                "771e285d.fdc1a8"
+            ]
+        ]
+    },
+    {
+        "id": "ecb2b00a.87fd8",
+        "type": "debug",
+        "z": "6788480a.31af48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 810.0000152587891,
+        "y": 213.75000190734863,
+        "wires": []
+    },
+    {
+        "id": "771e285d.fdc1a8",
+        "type": "debug",
+        "z": "6788480a.31af48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 812.5000038146973,
+        "y": 282.5,
+        "wires": []
+    },
+    {
+        "id": "cdebe994.b6fe88",
+        "type": "debug",
+        "z": "6788480a.31af48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 810.0000190734863,
+        "y": 248.75000381469727,
+        "wires": []
+    },
+    {
+        "id": "2de19d58.dbf972",
+        "type": "inject",
+        "z": "6788480a.31af48",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 167.5,
+        "y": 373.75,
+        "wires": [
+            [
+                "bceee0bd.c7726"
+            ]
+        ]
+    },
+    {
+        "id": "bceee0bd.c7726",
+        "type": "function",
+        "z": "6788480a.31af48",
+        "name": "copier le message en trois copies",
+        "func": "var msg1 = { payload:\"premier message\" };\nvar msg2 = { payload:\"deuxieme message\" };\nvar msg3 = { payload:\"troisieme message\" };\n\nreturn [msg1, msg2, msg3 ];",
+        "outputs": "3",
+        "noerr": 0,
+        "x": 511.2500057220459,
+        "y": 373.75000190734863,
+        "wires": [
+            [
+                "9be6cbe0.183a98"
+            ],
+            [
+                "9be6cbe0.183a98"
+            ],
+            [
+                "9be6cbe0.183a98"
+            ]
+        ]
+    },
+    {
+        "id": "9be6cbe0.183a98",
+        "type": "debug",
+        "z": "6788480a.31af48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 813.7500114440918,
+        "y": 373.7500047683716,
+        "wires": []
+    },
+    {
+        "id": "a3eee070.da939",
+        "type": "inject",
+        "z": "6788480a.31af48",
+        "name": "",
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 176.25000381469727,
+        "y": 170.00000190734863,
+        "wires": [
+            [
+                "97605cd6.fbc8d"
+            ]
+        ]
+    },
+    {
+        "id": "781ac206.11bacc",
+        "type": "inject",
+        "z": "6788480a.31af48",
+        "name": "",
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 176.25000381469727,
+        "y": 123.74999904632568,
+        "wires": [
+            [
+                "97605cd6.fbc8d"
+            ]
+        ]
+    },
+    {
+        "id": "77a0b95d.411498",
+        "type": "comment",
+        "z": "6788480a.31af48",
+        "name": "multiple-outputs",
+        "info": "https://nodered.org/docs/writing-functions#multiple-outputs",
+        "x": 456.25000762939453,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3d4a4aec.ccb0b6",
+        "type": "inject",
+        "z": "6788480a.31af48",
+        "name": "",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 175,
+        "y": 577.5000076293945,
+        "wires": [
+            [
+                "1faaffe4.28235"
+            ]
+        ]
+    },
+    {
+        "id": "4f2bb7d3.0f0928",
+        "type": "inject",
+        "z": "6788480a.31af48",
+        "name": "",
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 177.5,
+        "y": 661.2500095367432,
+        "wires": [
+            [
+                "1faaffe4.28235"
+            ]
+        ]
+    },
+    {
+        "id": "1faaffe4.28235",
+        "type": "switch",
+        "z": "6788480a.31af48",
+        "name": "< 3 ou >= 3",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "3",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 388.75000762939453,
+        "y": 615.0000095367432,
+        "wires": [
+            [
+                "18017d88.aafe22"
+            ],
+            [
+                "42b1ad8d.191c54"
+            ]
+        ]
+    },
+    {
+        "id": "18017d88.aafe22",
+        "type": "function",
+        "z": "6788480a.31af48",
+        "name": "msg.payload = \"plus petit\";",
+        "func": "msg.payload = \"plus petit\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 643.7500076293945,
+        "y": 573.750009059906,
+        "wires": [
+            [
+                "31e3a9e7.4c3576"
+            ]
+        ]
+    },
+    {
+        "id": "42b1ad8d.191c54",
+        "type": "function",
+        "z": "6788480a.31af48",
+        "name": "msg.payload = \"plus grand ou egal\";",
+        "func": "msg.payload = \"plus grand ou egal\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 656.2500152587891,
+        "y": 665.0000095367432,
+        "wires": [
+            [
+                "31e3a9e7.4c3576"
+            ]
+        ]
+    },
+    {
+        "id": "31e3a9e7.4c3576",
+        "type": "debug",
+        "z": "6788480a.31af48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 888.7500152587891,
+        "y": 616.2500095367432,
+        "wires": []
+    }
+]
