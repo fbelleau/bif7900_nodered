@@ -1,0 +1,103 @@
+[
+    {
+        "id": "159ce5c2.abd30a",
+        "type": "tab",
+        "label": "7-get http"
+    },
+    {
+        "id": "c47304f8.154d78",
+        "type": "inject",
+        "z": "159ce5c2.abd30a",
+        "name": "",
+        "topic": "",
+        "payload": "15275",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 685,
+        "y": 118.75,
+        "wires": [
+            [
+                "b7fe21df.c75d5"
+            ]
+        ]
+    },
+    {
+        "id": "b7fe21df.c75d5",
+        "type": "http request",
+        "z": "159ce5c2.abd30a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://mygene.info/v3/query?q=entrezgene:{{{payload}}}&fields=all",
+        "tls": "",
+        "x": 931.2500152587891,
+        "y": 231.25000190734863,
+        "wires": [
+            [
+                "7b0b7946.303d68"
+            ]
+        ]
+    },
+    {
+        "id": "5f0ca463.53817c",
+        "type": "comment",
+        "z": "159ce5c2.abd30a",
+        "name": "http://mygene.info/v3/api",
+        "info": "http://nodered.bio2rdf.org:8080/mygene?id=15275",
+        "x": 712.5,
+        "y": 38.75,
+        "wires": []
+    },
+    {
+        "id": "33097f5e.cc3a2",
+        "type": "inject",
+        "z": "159ce5c2.abd30a",
+        "name": "",
+        "topic": "",
+        "payload": "15277",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 682.5000114440918,
+        "y": 227.50000190734863,
+        "wires": [
+            [
+                "b7fe21df.c75d5"
+            ]
+        ]
+    },
+    {
+        "id": "fd7b6a7.7aaab98",
+        "type": "inject",
+        "z": "159ce5c2.abd30a",
+        "name": "",
+        "topic": "",
+        "payload": "999999",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 687.5,
+        "y": 341.25,
+        "wires": [
+            [
+                "b7fe21df.c75d5"
+            ]
+        ]
+    },
+    {
+        "id": "7b0b7946.303d68",
+        "type": "debug",
+        "z": "159ce5c2.abd30a",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1220.000015258789,
+        "y": 237.50000381469727,
+        "wires": []
+    }
+]
