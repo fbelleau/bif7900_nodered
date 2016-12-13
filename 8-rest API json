@@ -1,0 +1,106 @@
+[
+    {
+        "id": "c1ab5a24.d5bf98",
+        "type": "tab",
+        "label": "8-rest API json"
+    },
+    {
+        "id": "473b491b.1301d8",
+        "type": "inject",
+        "z": "c1ab5a24.d5bf98",
+        "name": "{\"prenom\":\"Francois\",\"age\":53}",
+        "topic": "",
+        "payload": "{\"prenom\":\"Francois\",\"age\":53}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 115.00000190734863,
+        "wires": [
+            [
+                "69dc602e.f2456"
+            ]
+        ]
+    },
+    {
+        "id": "69dc602e.f2456",
+        "type": "function",
+        "z": "c1ab5a24.d5bf98",
+        "name": "msg.prenom + \" vous avez \" + msg.age",
+        "func": "msg.payload = msg.payload.prenom + \" vous avez \" + msg.payload.age + \" ans.\"; \n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 443.75,
+        "y": 231.25000381469727,
+        "wires": [
+            [
+                "5a2f21f9.c28cb",
+                "acb52f3a.2fa8c"
+            ]
+        ]
+    },
+    {
+        "id": "5a2f21f9.c28cb",
+        "type": "debug",
+        "z": "c1ab5a24.d5bf98",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 825,
+        "y": 231.5,
+        "wires": []
+    },
+    {
+        "id": "e0ab0acc.a1e548",
+        "type": "http response",
+        "z": "c1ab5a24.d5bf98",
+        "name": "",
+        "x": 880.5,
+        "y": 318.75,
+        "wires": []
+    },
+    {
+        "id": "acb52f3a.2fa8c",
+        "type": "function",
+        "z": "c1ab5a24.d5bf98",
+        "name": "msg.res === undefined",
+        "func": "if (msg.res === undefined) {\n    return null;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 655.75,
+        "y": 318.75,
+        "wires": [
+            [
+                "e0ab0acc.a1e548"
+            ]
+        ]
+    },
+    {
+        "id": "800209f3.8208e8",
+        "type": "http in",
+        "z": "c1ab5a24.d5bf98",
+        "name": "",
+        "url": "/api-json",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 103.75,
+        "y": 232.5,
+        "wires": [
+            [
+                "69dc602e.f2456"
+            ]
+        ]
+    },
+    {
+        "id": "e62541e9.4c0f4",
+        "type": "comment",
+        "z": "c1ab5a24.d5bf98",
+        "name": "http://nodered.bio2rdf.org:8080/api-json",
+        "info": "http://nodered.bio2rdf.org:8080/api-json?prenom=Francois&age=53\n\nhttp://nodered.bio2rdf.org:8080/api-json?prenom=Jean&age=25",
+        "x": 603.75,
+        "y": 75,
+        "wires": []
+    }
+]
